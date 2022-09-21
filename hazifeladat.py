@@ -3,7 +3,7 @@ from operator import index
 
 szamok = [-1000, -600, -200, -500, 200, 600, 1000]
 
-max, a = -1000, 0
+max, a = -1000, 1000
 indexek = 1
 
 for i in szamok:
