@@ -1,0 +1,31 @@
+Az Eratosztenészi szita algoritmusa egy hatékony módja a prímszámok megtalálásának. Íme egy egyszerű Python program, amely használja ezt az algoritmust:
+
+```python
+def sieve_of_eratosthenes(n):
+    prime = [True] * (n+1)
+    prime[0] = prime[1] = False
+    p = 2
+    while p**2 <= n:
+        if prime[p]:
+            for i in range(p**2, n+1, p):
+                prime[i] = False
+        p += 1
+
+    primes = []
+    for i in range(2, n+1):
+        if prime[i]:
+            primes.append(i)
+    return primes
+
+try:
+    n = int(input("Adj meg egy egész számot: "))
+    if n < 2:
+        print("Nincsenek prímszámok a megadott számnál kisebb értékeken.")
+    else:
+        prime_numbers = sieve_of_eratosthenes(n)
+        print(f"A {n}-nél kisebb prímszámok: {prime_numbers}")
+except ValueError:
+    print("Érvénytelen bemenet. Kérlek adj meg egy egész számot.")
+```
+
+Ez a program bekéri a felhasználótól a számot, majd alkalmazza az Eratosztenészi szita algoritmusát a prímszámok megtalálására. Az eredményt kiírja a képernyőre. Ha a felhasználó érvénytelen bemenetet ad meg, a program hibaüzenetet jelenít meg.
